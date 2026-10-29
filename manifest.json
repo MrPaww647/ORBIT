@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "ORBIT AI — Cyberpunk Web Assistant",
+  "version": "1.0.0",
+  "description": "AI assistant for webpages, selected text, summaries and explanations.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "activeTab", "contextMenus", "sidePanel", "tabs"],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_title": "Open ORBIT AI", "default_popup": "popup.html"},
+  "side_panel": {"default_path": "sidepanel.html"},
+  "options_page": "options.html",
+  "commands": {"open-orbit": {"suggested_key": {"default": "Alt+Shift+O"}, "description": "Open ORBIT AI"}},
+  "content_scripts": [{"matches": ["http://*/*", "https://*/*"], "js": ["content.js"], "run_at": "document_idle"}]
+}
